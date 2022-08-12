@@ -8,8 +8,9 @@ class TestCheckPasswordStrength(unittest.TestCase):
         self.assertEqual(app.check_password_strength("Welcomeldfasl"),False)
     def test_password_specialchar(self):
         self.assertEqual(app.check_password_strength("4839djsja"),False)
-        self.assertEqual(app.check_password_strength("4839323432"),False)
         self.assertEqual(app.check_password_strength("Welcome@123"),True)
+    def test_password_specialchar_2(self):
+        self.assertEqual(app.check_password_strength("4839323432"),False)
     def test_password_isnull(self):
         self.assertEqual(app.check_password_strength(None),False)
     def test_password_hasnumbers(self):
