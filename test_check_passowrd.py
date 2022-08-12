@@ -12,6 +12,9 @@ class TestCheckPasswordStrength(unittest.TestCase):
         self.assertEqual(app.check_password_strength("Welcome@123"),True)
     def test_password_isnull(self):
         self.assertEqual(app.check_password_strength(None),False)
+    def test_password_hasnumbers(self):
+        self.assertEqual(app.check_password_strength("sabncsmcoscsa"),False)
+        self.assertEqual(app.check_password_strength("@sabncsmco123"),True)
         
 if __name__=='__main__':
     unittest.main()
